@@ -22,9 +22,12 @@
 
 ## RSA在CTF中的攻击方法
 
-gmpy2 安装
-sudo apt install libmpc-dev
-pip/pip3 install gmpy2
+>gmpy2 安装
+>sudo apt install libmpc-dev
+>pip/pip3 install gmpy2
+>
+>sage安装
+>https://mirrors.tuna.tsinghua.edu.cn/sagemath/linux/64bit/index.html
 
 ### 明文解密
 
