@@ -12,7 +12,9 @@
 
 3.选择一个整数*e*，满足*1< e < φ(n)*，且*e与φ(n)* 互质（e通常取65537）
 
-4.计算模反元素*d*，*ed ≡ 1 (mod φ(n))* 即求解*ex + φ(n)y = 1*方程组（利用扩展欧几里得算法可以求出*d*）```d = gmpy2.invert(e, (p-1)*(q-1))```
+4.计算模反元素*d*，*ed ≡ 1 (mod φ(n))* 即求解*ex + φ(n)y = 1*方程组（利用扩展欧几里得算法可以求出*d*）
+
+```d = gmpy2.invert(e, (p-1)*(q-1))```
 
 5.得到公钥*（N，e）*私钥*（N，d）*
 
@@ -23,10 +25,13 @@
 ## RSA在CTF中的攻击方法
 
 >gmpy2 安装
+>
 >sudo apt install libmpc-dev
+>
 >pip/pip3 install gmpy2
 >
 >sage安装
+>
 >https://mirrors.tuna.tsinghua.edu.cn/sagemath/linux/64bit/index.html
 
 ### 明文解密
@@ -34,12 +39,15 @@
 #### **模互素**
 
 d = gmpy2.invert(e,(p-1) * (q-1))
+
 m = gmpy2.powmod(c,d,n)
 
 #### **模不互素**
 
 第一种情况
+
 给出 p,q,c,e且gcd(e, (p-1)*(q-1))非常小(可能为3)
+
 example:
 
 p,q = 3881, 885445853681787330351086884500131209939
@@ -49,6 +57,7 @@ c = 1926041757553905692219721422025224638913707
 e = 33
 
 第二种情况
+
 给出n1,n2,e1,e2,c1,c2求满足以下式子
 
 assert p = gcd(n1,n2)
