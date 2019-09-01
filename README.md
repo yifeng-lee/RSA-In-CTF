@@ -94,15 +94,27 @@ e 非常大接近于N，跟低解密指数攻击类似，比低解密指数攻�
 ### 其他思路
 
 给出两组数据
+
 n1,c1,e1,n2,c2,e2且无以上特征可尝试gcd(n1,n2)得到公因子（存在的话）
+
 给出一组数据
+
 n1,c1,e1
+
 尝试yafu或http://www.factordb.com分解n(p,q相差过大或过小yafu可分解成功)
-如下
+
+给出如下数据
+
 p,q,nextprime(p),nextprime(q)
+
 n1 = p * q
+
 n2 = nextprime(p) * nextprime(q)
+
 n = n1 * n2
+
 用yafu分解n可得到
+
 n3 = p * nextprime(q)
+
 n4 = q * nextprime(p)
