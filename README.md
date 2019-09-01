@@ -1,4 +1,4 @@
-# RSA
+# CTF中RSA的一些攻击思路
 
 ## 关于RSA算法
 
@@ -41,16 +41,25 @@ m = gmpy2.powmod(c,d,n)
 第一种情况
 给出 p,q,c,e且gcd(e, (p-1)*(q-1))非常小(可能为3)
 example:
+
 p,q = 3881, 885445853681787330351086884500131209939
+
 c = 1926041757553905692219721422025224638913707
+
 e = 33
 
 第二种情况
 给出n1,n2,e1,e2,c1,c2求满足以下式子
+
 assert p = gcd(n1,n2)
+
 assert pow(flag,e1,n1)==c1
+
 assert pow(flag,e2,n2)==c2
+
 assert gcd(e1,(p1-1) * (q1-1))==gcd(e2,(p2-1) * (q2-1))
+
+
 
 ### 低加密指数攻击
 
@@ -59,9 +68,13 @@ m ^ e = kn + c 其中一般 e = 3，k比较小(k小于10亿爆破时间一般小
 ### 低加密指数广播攻击
 
 c1 ≡ m^e mod n1
+
 c2 ≡ m^e mod n2
+
 ……
+
 ce ≡ m^e mod ne
+
 如以上所示，e比较小，题目给出n[e]和c[e],且m相同，利用中国剩余定理可以求m
 
 ### 低解密指数攻击
@@ -71,7 +84,9 @@ ce ≡ m^e mod ne
 ### 共模攻击
 
 c1 ≡ m^e1 mod n
+
 c2 ≡ m^e2 mod n
+
 如以上使用了相同的模数N对相同的明文进行加密
 
 ### Boneh and Durfee attack
