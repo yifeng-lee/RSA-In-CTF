@@ -1,5 +1,7 @@
 # CTF中RSA的一些攻击思路
 
+> 本项目收集了一些RSA的攻击脚本并将用python3重构
+
 ## 关于RSA算法
 
 > **RSA加密算法**是一种非对称加密算法，1977年由Ron Rivest、Adi Shamir和Leonard Adleman一起提出的，算法安全性依赖于极大整数做因数分解的难度
